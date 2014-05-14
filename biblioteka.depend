@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1400105179 source:c:\users\martro\documents\github\biblioteka\main.cpp
+	<iostream>
+	"publikacja.h"
+	"ksiazka.h"
+	"regal.h"
+	"czasopismo.h"
+
+1400105427 c:\users\martro\documents\github\biblioteka\publikacja.h
+	<string>
+
+1400105552 c:\users\martro\documents\github\biblioteka\ksiazka.h
+	"publikacja.h"
+
+1400103649 c:\users\martro\documents\github\biblioteka\regal.h
+
+1400105558 c:\users\martro\documents\github\biblioteka\czasopismo.h
+
