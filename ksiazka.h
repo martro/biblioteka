@@ -2,7 +2,9 @@
 #define KSIAZKA_H_INCLUDED
 #include "publikacja.h"
 
+
 using namespace std;
+
 
 class Ksiazka: public Publikacja
 {

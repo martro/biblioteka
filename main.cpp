@@ -21,5 +21,10 @@ int main()
     czas.ustaw_date();
     czas.wyswietl();
 
+
+    Regal reg;
+
+    reg.push(ks);
+
     return 0;
 }
