@@ -30,7 +30,10 @@ public:
 
         cout<<"\ndodawanie ksiazki\n"<<jaka_tematyka()<<"-"<<ksiazka.jaki_autor();
         if (this->jaka_tematyka()==ksiazka.jaka_tematyka())
+        {
             v_ks.push_back (ksiazka);
+            cout<<"\nDODANO\n";
+        }
     }
 
     void push(Czasopismo czasopismo)
@@ -48,18 +51,19 @@ public:
     void wyswietl()
     {
         int max=v_ks.size();
+        cout<<"rozm: "<<max<<". ";
         for (int i=0; i<max;i++)
         {
-            cout<<i<<". ";
+            cout<<i<<". ddddd";
             v_ks.at(i).wyswietl();
             cout<<endl;
         }
 
-        cout<<endl;
+        cout<<"\n___________\n"<<endl;
         max=v_czas.size();
         for (int i=0; i<max;i++)
         {
-            cout<<i<<". ";
+            cout<<i<<".eeeeeeeeee ";
             v_czas.at(i).wyswietl();
             cout<<endl;
         }

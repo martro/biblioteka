@@ -48,7 +48,7 @@ public:
     }
     }
 
-    Regal szukaj_regal(string nazwa_regalu)
+    int szukaj_regal(string nazwa_regalu)
     {
         int i=0;
         int max=v_reg.size();
@@ -67,19 +67,29 @@ public:
             }
         i++;
         }while (i<max && czy_istnieje==0);
-        return reg;
+
+        i--;
+
+        if (czy_istnieje==0)
+            i=-1;
+        return i;
     }
 
     void dodaj_publikacje(Ksiazka ks)
     {
         Regal reg(ks.jaka_tematyka());
+        int poz;
 
-    if (czy_istnieje_regal(ks.jaka_tematyka()))
-        reg=szukaj_regal(ks.jaka_tematyka());
-    else
-        this->dodaj_regal(reg);
+        poz=szukaj_regal(ks.jaka_tematyka());
 
-        reg.push(ks);
+        if (poz==-1)
+        {
+            reg.push(ks);
+            push(reg);
+        }
+
+        if (poz>=0)
+            v_reg.at(poz).push(ks);
     }
 
 };

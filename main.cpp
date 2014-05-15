@@ -12,26 +12,30 @@ int main()
 {
     Biblioteka bib;
 
-    Ksiazka ks1("aaaaa","Thriller","Przyrodnicze");
-    Ksiazka ks2("bbbbb","Bajka","BBBBBB");
-    Ksiazka ks3;
-    Ksiazka ks4;
-    Ksiazka ks5;
-    Ksiazka ks6;
+    Ksiazka ks1("Inferno","Sensacja","Dan Brown");//tytul, gatunek, autor
+    Ksiazka ks2("Szesc lat pozniej","Sensacja","Harlan Coben");
+    Ksiazka ks3("Surely you are joking Mr. Feynman","Biografia", "R.Feynman");
 
-    Regal reg("Przyrodnicze");
+    Czasopismo czas1("National Geographic","Przyrodnicze","15/05/14");
+    Czasopismo czas2;
+    Czasopismo czas3;
 
-    //bib.dodaj_regal(reg);
+    Regal reg("Sensacja");
+    //reg.push(ks1);
+
+    bib.dodaj_regal(reg);
     bib.dodaj_publikacje(ks1);
     bib.dodaj_publikacje(ks2);
     bib.dodaj_publikacje(ks3);
-    //reg.push(ks1);
+
+        cout<<"tutaj:\n";
+    reg.wyswietl();
+
+
     cout<<"Wyswietl:\n";
     bib.wyswietl();
 /*
-    Czasopismo czas1;
-    Czasopismo czas2;
-    Czasopismo czas3;
+
     Czasopismo czas4;
     Czasopismo czas5;
     Czasopismo czas6;
