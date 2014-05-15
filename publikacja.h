@@ -38,6 +38,11 @@ public:
     {
         cout<<tytul;
     }
+
+    string jaka_tematyka()
+    {
+        return gatunek;
+    }
 };
 
 #endif // PUBLIKACJA_H_INCLUDED

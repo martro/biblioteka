@@ -23,6 +23,11 @@ public:
     {
         cout<<"Czasopismo: "<<tytul<<" "<<data_wyd;
     }
+        string jaka_data()
+    {
+        return data_wyd;
+    }
+
 };
 
 #endif // CZASOPISMO_H_INCLUDED

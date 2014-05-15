@@ -27,49 +27,50 @@ int main()
     bib.dodaj_publikacje(ks1);
     bib.dodaj_publikacje(ks2);
     bib.dodaj_publikacje(ks3);
+    bib.dodaj_publikacje(czas1);
 
-        cout<<"tutaj:\n";
+    cout<<"tutaj:\n";
     reg.wyswietl();
 
 
     cout<<"Wyswietl:\n";
     bib.wyswietl();
-/*
+    /*
 
-    Czasopismo czas4;
-    Czasopismo czas5;
-    Czasopismo czas6;
+        Czasopismo czas4;
+        Czasopismo czas5;
+        Czasopismo czas6;
 
-    Regal reg("Przyrodnicze");
-    Regal reg2("Przyrodnicze");//nie jest alokowana pamiec na nazwe, bo temetyka juz istnieje
-    Regal reg3("Thriller");
-    Regal reg4("Kulinarne");
+        Regal reg("Przyrodnicze");
+        Regal reg2("Przyrodnicze");//nie jest alokowana pamiec na nazwe, bo temetyka juz istnieje
+        Regal reg3("Thriller");
+        Regal reg4("Kulinarne");
 
-    reg.push(ks1);//dodanie 2 ksiazek i 2 czasopism na regal 0
-    reg.push(ks2);
-    reg.push(czas1);
-    reg.push(czas2);
+        reg.push(ks1);//dodanie 2 ksiazek i 2 czasopism na regal 0
+        reg.push(ks2);
+        reg.push(czas1);
+        reg.push(czas2);
 
-    reg3.push(ks3);
-    reg3.push(ks4);
-    reg3.push(czas3);
-    reg3.push(czas4);
+        reg3.push(ks3);
+        reg3.push(ks4);
+        reg3.push(czas3);
+        reg3.push(czas4);
 
-    bib.dodaj_regal(reg);
-    bib.dodaj_regal(reg); //funkcja nic nie robi, bo regal o danej tematyce istnieje
-    bib.dodaj_regal(reg2);
-    bib.dodaj_regal(reg3);
-    bib.dodaj_regal(reg4);
-
-
-
-    //w tym momencie w bibliotece nadal jest jeden regal
-
-    bib.dodaj_regal(reg2);
+        bib.dodaj_regal(reg);
+        bib.dodaj_regal(reg); //funkcja nic nie robi, bo regal o danej tematyce istnieje
+        bib.dodaj_regal(reg2);
+        bib.dodaj_regal(reg3);
+        bib.dodaj_regal(reg4);
 
 
 
-    bib.wyswietl();*/
+        //w tym momencie w bibliotece nadal jest jeden regal
+
+        bib.dodaj_regal(reg2);
+
+
+
+        bib.wyswietl();*/
 
     /*reg.push(ks);
     reg.push(ks);

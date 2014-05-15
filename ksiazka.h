@@ -15,7 +15,8 @@ public:
     {
 
     };
-    ~Ksiazka(){
+    ~Ksiazka()
+    {
     };
 
     void ustaw_autora()
@@ -26,7 +27,7 @@ public:
 
     void wyswietl()
     {
-        cout<<"Ksiazka: "<<tytul<<" "<<autor;
+        cout<<"\""<<tytul<<"\", "<<autor;
     }
 
     string jaki_autor()
@@ -37,10 +38,6 @@ public:
     string jaki_tytul()
     {
         return tytul;
-    }
-    string jaka_tematyka()
-    {
-        return gatunek;
     }
 };
 

@@ -22,7 +22,8 @@ public:
     {
         this->tematyka=tematyka;
     };
-    ~Regal(){
+    ~Regal()
+    {
     };
 
     void push(Ksiazka ksiazka)
@@ -51,19 +52,20 @@ public:
     void wyswietl()
     {
         int max=v_ks.size();
-        cout<<"rozm: "<<max<<". ";
-        for (int i=0; i<max;i++)
+
+
+        cout<<endl<<"\nKsiazki: \n";
+
+        for (int i=0; i<max; i++)
         {
-            cout<<i<<". ddddd";
+            cout<<endl<<i<<". ";
             v_ks.at(i).wyswietl();
-            cout<<endl;
         }
 
-        cout<<"\n___________\n"<<endl;
         max=v_czas.size();
-        for (int i=0; i<max;i++)
+        for (int i=0; i<max; i++)
         {
-            cout<<i<<".eeeeeeeeee ";
+            cout<<i<<".";
             v_czas.at(i).wyswietl();
             cout<<endl;
         }
@@ -73,7 +75,7 @@ public:
     {
         cout<<endl;
         int max=v_ks.size();
-        for (int i=0; i<max;i++)
+        for (int i=0; i<max; i++)
         {
             cout<<i<<". ";
             v_ks.at(i).wyswietl();
@@ -85,7 +87,7 @@ public:
     {
         cout<<endl;
         int max=v_czas.size();
-        for (int i=0; i<max;i++)
+        for (int i=0; i<max; i++)
         {
             cout<<i<<". ";
             v_czas.at(i).wyswietl();
