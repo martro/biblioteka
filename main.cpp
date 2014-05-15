@@ -19,10 +19,13 @@ int main()
     Ksiazka ks5;
     Ksiazka ks6;
 
-    //Regal reg("Przyrodnicze");
+    Regal reg("Przyrodnicze");
 
     //bib.dodaj_regal(reg);
     bib.dodaj_publikacje(ks1);
+    bib.dodaj_publikacje(ks2);
+    bib.dodaj_publikacje(ks3);
+    //reg.push(ks1);
     cout<<"Wyswietl:\n";
     bib.wyswietl();
 /*

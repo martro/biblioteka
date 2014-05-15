@@ -29,7 +29,7 @@ public:
     {
 
         cout<<"\ndodawanie ksiazki\n"<<jaka_tematyka()<<"-"<<ksiazka.jaki_autor();
-        if (this->jaka_tematyka()==ksiazka.jaki_autor())
+        if (this->jaka_tematyka()==ksiazka.jaka_tematyka())
             v_ks.push_back (ksiazka);
     }
 
@@ -47,7 +47,6 @@ public:
 
     void wyswietl()
     {
-        cout<<endl;
         int max=v_ks.size();
         for (int i=0; i<max;i++)
         {
