@@ -19,27 +19,34 @@ public:
     {
     };
 
-    void ustaw_autora()
+       void ustaw_autora();
+        void wyswietl();
+        string jaki_autor();
+        string jaki_tytul();
+
+
+};
+
+   void Ksiazka:: ustaw_autora()
     {
         cout<<"Autor: ";
         cin>>autor;
     }
 
-    void wyswietl()
+    void Ksiazka:: wyswietl()
     {
         cout<<"\""<<tytul<<"\", "<<autor;
     }
 
-    string jaki_autor()
+    string Ksiazka:: jaki_autor()
     {
         return autor;
     }
 
-    string jaki_tytul()
+    string Ksiazka:: jaki_tytul()
     {
         return tytul;
     }
-};
 
 
 #endif // KSIAZKA_H_INCLUDED

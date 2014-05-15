@@ -10,20 +10,28 @@ private:
 
     vector<Regal> v_reg;
 
+    int czy_istnieje_regal(string nazwa_regalu);
+    int szukaj_regal(string nazwa_regalu);
+    void push(Regal regal);
+
 public:
 
     Biblioteka() {};
     ~Biblioteka() {};
-    int czy_istnieje_regal(string nazwa_regalu);
 
+    void dodaj_publikacje(Ksiazka ks);
+    void dodaj_publikacje(Czasopismo czas);
+    void dodaj_regal(Regal reg);
+    void wyswietl();
+};
 
-    void push(Regal regal)
+    void Biblioteka:: push(Regal regal)
     {
         cout<<"\nDodawanie regalu\n";
         v_reg.push_back (regal);
     }
 
-    void wyswietl()
+    void Biblioteka:: wyswietl()
     {
         cout<<endl;
         int max=v_reg.size();
@@ -37,7 +45,7 @@ public:
         }
     }
 
-    void dodaj_regal(Regal reg)
+    void Biblioteka:: dodaj_regal(Regal reg)
     {
         string nazwa_regalu;
 
@@ -49,7 +57,30 @@ public:
         }
     }
 
-    int szukaj_regal(string nazwa_regalu)
+int Biblioteka:: czy_istnieje_regal(string nazwa_regalu)
+{
+    int i=0;
+    int czy_istnieje=0;
+    int max=v_reg.size();
+
+    if (max)
+        do
+        {
+            cout<<"\ntest: "<<v_reg.at(i).jaka_tematyka()<<" "<<nazwa_regalu;
+            if (v_reg.at(i).jaka_tematyka()==nazwa_regalu)
+            {
+                cout<<"Regal o podanej tematyce istnieje. Nie zostal utworzony nowy.";
+                czy_istnieje=1;
+            }
+            i++;
+        }
+        while (i<max && czy_istnieje==0);
+
+
+    return czy_istnieje;
+}
+
+    int Biblioteka:: szukaj_regal(string nazwa_regalu)
     {
         int i=0;
         int max=v_reg.size();
@@ -77,7 +108,7 @@ public:
         return i;
     }
 
-    void dodaj_publikacje(Ksiazka ks)
+void Biblioteka:: dodaj_publikacje(Ksiazka ks)
     {
         Regal reg(ks.jaka_tematyka());
         int poz;
@@ -94,48 +125,21 @@ public:
             v_reg.at(poz).push(ks);
     }
 
-    void dodaj_publikacje(Czasopismo czas)
+void Biblioteka:: dodaj_publikacje(Czasopismo czas)
+{
+    Regal reg(czas.jaka_tematyka());
+    int poz;
+
+    poz=szukaj_regal(czas.jaka_tematyka());
+
+    if (poz==-1)
     {
-        Regal reg(czas.jaka_tematyka());
-        int poz;
-
-        poz=szukaj_regal(czas.jaka_tematyka());
-
-        if (poz==-1)
-        {
-            reg.push(czas);
-            push(reg);
-        }
-
-        if (poz>=0)
-            v_reg.at(poz).push(czas);
+        reg.push(czas);
+        push(reg);
     }
 
-};
-
-int Biblioteka:: czy_istnieje_regal(string nazwa_regalu)
-{
-    int i=0;
-    int czy_istnieje=0;
-    int max=v_reg.size();
-
-    if (max)
-        do
-        {
-            cout<<"\ntest: "<<v_reg.at(i).jaka_tematyka()<<" "<<nazwa_regalu;
-            if (v_reg.at(i).jaka_tematyka()==nazwa_regalu)
-            {
-                cout<<"Regal o podanej tematyce istnieje. Nie zostal utworzony nowy.";
-                czy_istnieje=1;
-            }
-            i++;
-        }
-        while (i<max && czy_istnieje==0);
-
-
-    return czy_istnieje;
+    if (poz>=0)
+        v_reg.at(poz).push(czas);
 }
-
-
 
 #endif // BIBLIOTEKA_H_INCLUDED

@@ -10,24 +10,28 @@ public:
     {
 
     };
-    ~Czasopismo(){
+    ~Czasopismo()
+    {
     };
-
-    void ustaw_date()
-    {
-        cout<<"Data wydania: ";
-        cin>>data_wyd;
-    }
-
-    void wyswietl()
-    {
-        cout<<"Czasopismo: "<<tytul<<" "<<data_wyd;
-    }
-        string jaka_data()
-    {
-        return data_wyd;
-    }
-
+    void ustaw_date();
+    void wyswietl();
+    string jaka_data();
 };
+
+void Czasopismo:: ustaw_date()
+{
+    cout<<"Data wydania: ";
+    cin>>data_wyd;
+}
+
+void Czasopismo:: wyswietl()
+{
+    cout<<"\""<<tytul<<"\", "<<data_wyd;
+}
+
+string Czasopismo:: jaka_data()
+{
+    return data_wyd;
+}
 
 #endif // CZASOPISMO_H_INCLUDED
