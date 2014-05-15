@@ -36,12 +36,38 @@ public:
         cout<<"\ndodawanie czasopisma\n";
         v_czas.push_back (czasopismo);
     }
+
+    void wyswietl()
+    {
+        cout<<endl;
+        int max=v_ks.size();
+        for (int i=0; i<max;i++)
+        {
+            cout<<i<<". ";
+            v_ks.at(i).wyswietl();
+            cout<<endl;
+        }
+
+        cout<<endl;
+        max=v_czas.size();
+        for (int i=0; i<max;i++)
+        {
+            cout<<i<<". ";
+            v_czas.at(i).wyswietl();
+            cout<<endl;
+        }
+    }
+
     void wyswietl(Ksiazka)
     {
         cout<<endl;
         int max=v_ks.size();
         for (int i=0; i<max;i++)
+        {
+            cout<<i<<". ";
             v_ks.at(i).wyswietl();
+            cout<<endl;
+        }
     }
 
     void wyswietl(Czasopismo)
@@ -49,7 +75,11 @@ public:
         cout<<endl;
         int max=v_czas.size();
         for (int i=0; i<max;i++)
+        {
+            cout<<i<<". ";
             v_czas.at(i).wyswietl();
+            cout<<endl;
+        }
     }
 
 

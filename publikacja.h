@@ -9,10 +9,11 @@ class Publikacja
 protected:
     string tytul;
     int typ;
+    int numer_bib;
 
 public:
 
-    Publikacja(string tytul="aaa", int typ=0):tytul(tytul),typ(typ)
+    Publikacja(string tytul="brak_tytulu", int typ=0):tytul(tytul),typ(typ)
     {
 
     };
@@ -26,6 +27,11 @@ public:
     {
         cout<<"Tytul: ";
         cin>>tytul;
+    }
+
+    void generuj_nr_bib()
+    {
+        cout<<"Wygenerowany numer biblioteczny: "<<numer_bib;
     }
     virtual void wyswietl()
     {
