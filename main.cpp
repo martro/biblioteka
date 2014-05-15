@@ -25,6 +25,11 @@ int main()
     Regal reg;
 
     reg.push(ks);
+    reg.push(ks);
+    reg.push(ks);
+    reg.push(ks);
+
+    reg.wyswietl();
 
     return 0;
 }
