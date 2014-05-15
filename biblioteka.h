@@ -48,6 +48,34 @@ public:
     }
     }
 
+    Regal szukaj_regal(string nazwa_regalu)
+    {
+        int i=0;
+        int max=v_reg.size();
+        int czy_istnieje=0;
+
+        Regal reg;
+
+        if (max)
+        do
+        {
+            cout<<"\ntest: "<<v_reg.at(i).jaka_tematyka()<<" "<<nazwa_regalu;
+            if (v_reg.at(i).jaka_tematyka()==nazwa_regalu)
+            {
+                cout<<"Regal o podanej tematyce istnieje.";
+                czy_istnieje=1;
+            }
+        i++;
+        }while (i<max && czy_istnieje==0);
+        return reg;
+    }
+
+    void dodaj_publikacje(Ksiazka ks)
+    {
+        Regal reg;
+
+    }
+
 };
 
     int Biblioteka:: czy_istnieje_regal(string nazwa_regalu)
