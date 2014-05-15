@@ -19,6 +19,13 @@ int main()
     Ksiazka ks5;
     Ksiazka ks6;
 
+    //Regal reg("Przyrodnicze");
+
+    //bib.dodaj_regal(reg);
+    bib.dodaj_publikacje(ks1);
+    cout<<"Wyswietl:\n";
+    bib.wyswietl();
+/*
     Czasopismo czas1;
     Czasopismo czas2;
     Czasopismo czas3;
@@ -55,7 +62,7 @@ int main()
 
 
 
-    bib.wyswietl();
+    bib.wyswietl();*/
 
     /*reg.push(ks);
     reg.push(ks);

@@ -29,7 +29,7 @@ public:
         int max=v_reg.size();
         for (int i=0; i<max;i++)
         {
-            cout<<"Regal: "<<i<<".";
+            cout<<"Regal: "<<i<<". ";
             v_reg.at(i).wyswietl_tematyke();
             v_reg.at(i).wyswietl();
             cout<<endl;
@@ -72,8 +72,14 @@ public:
 
     void dodaj_publikacje(Ksiazka ks)
     {
-        Regal reg;
+        Regal reg(ks.jaka_tematyka());
 
+    if (czy_istnieje_regal(ks.jaka_tematyka()))
+        reg=szukaj_regal(ks.jaka_tematyka());
+    else
+        this->dodaj_regal(reg);
+
+        reg.push(ks);
     }
 
 };

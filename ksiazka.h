@@ -33,6 +33,15 @@ public:
     {
         return autor;
     }
+
+    string jaki_tytul()
+    {
+        return tytul;
+    }
+    string jaka_tematyka()
+    {
+        return gatunek;
+    }
 };
 
 
