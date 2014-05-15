@@ -26,16 +26,30 @@ public:
     void push(Ksiazka ksiazka)
     {
 
-        cout<<"dodawanie ksiazki\n";
+        cout<<"\ndodawanie ksiazki\n";
         v_ks.push_back (ksiazka);
     }
 
-    void wyswietl()
+    void push(Czasopismo czasopismo)
+    {
+
+        cout<<"\ndodawanie czasopisma\n";
+        v_czas.push_back (czasopismo);
+    }
+    void wyswietl(Ksiazka)
     {
         cout<<endl;
         int max=v_ks.size();
         for (int i=0; i<max;i++)
             v_ks.at(i).wyswietl();
+    }
+
+    void wyswietl(Czasopismo)
+    {
+        cout<<endl;
+        int max=v_czas.size();
+        for (int i=0; i<max;i++)
+            v_czas.at(i).wyswietl();
     }
 
 

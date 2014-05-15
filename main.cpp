@@ -26,10 +26,12 @@ int main()
 
     reg.push(ks);
     reg.push(ks);
-    reg.push(ks);
-    reg.push(ks);
+    reg.push(czas);
+    reg.push(czas);
 
-    reg.wyswietl();
+    reg.wyswietl(ks);
+    cout<<endl;
+    reg.wyswietl(czas);
 
     return 0;
 }
