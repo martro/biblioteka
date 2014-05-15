@@ -11,7 +11,7 @@ class Ksiazka: public Publikacja
 protected:
     string autor;
 public:
-    Ksiazka(string tytul="bez_tytulu", int typ=1, string autor="brak_autora"): Publikacja(tytul,typ), autor(autor)
+    Ksiazka(string tytul="bez_tytulu", string gatunek="bez_gatunku", string autor="brak_autora"): Publikacja(tytul,gatunek), autor(autor)
     {
 
     };
@@ -27,6 +27,11 @@ public:
     void wyswietl()
     {
         cout<<"Ksiazka: "<<tytul<<" "<<autor;
+    }
+
+    string jaki_autor()
+    {
+        return autor;
     }
 };
 

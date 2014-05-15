@@ -8,12 +8,13 @@ class Publikacja
 {
 protected:
     string tytul;
+    string gatunek;
     int typ;
     int numer_bib;
 
 public:
 
-    Publikacja(string tytul="brak_tytulu", int typ=0):tytul(tytul),typ(typ)
+    Publikacja(string tytul="brak_tytulu", string gatunek="brak_gatunku",int typ=0):tytul(tytul),gatunek(gatunek),typ(typ)
     {
 
     };

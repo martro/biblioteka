@@ -9,16 +9,18 @@
 
 using namespace std;
 
-//template <class Ksiazka, class Czasopismo>
+
 class Regal
 {
 private:
     vector<Ksiazka> v_ks;
     vector<Czasopismo> v_czas;
-public:
-    Regal()
-    {
 
+    string tematyka;
+public:
+    Regal(string tematyka="brak_tematyki"):tematyka(tematyka)
+    {
+        this->tematyka=tematyka;
     };
     ~Regal(){
     };
@@ -26,8 +28,9 @@ public:
     void push(Ksiazka ksiazka)
     {
 
-        cout<<"\ndodawanie ksiazki\n";
-        v_ks.push_back (ksiazka);
+        cout<<"\ndodawanie ksiazki\n"<<jaka_tematyka()<<"-"<<ksiazka.jaki_autor();
+        if (this->jaka_tematyka()==ksiazka.jaki_autor())
+            v_ks.push_back (ksiazka);
     }
 
     void push(Czasopismo czasopismo)
@@ -35,6 +38,11 @@ public:
 
         cout<<"\ndodawanie czasopisma\n";
         v_czas.push_back (czasopismo);
+    }
+
+    void wyswietl_tematyke()
+    {
+        cout<<tematyka;
     }
 
     void wyswietl()
@@ -80,6 +88,11 @@ public:
             v_czas.at(i).wyswietl();
             cout<<endl;
         }
+    }
+
+    string jaka_tematyka()
+    {
+        return this->tematyka;
     }
 
 

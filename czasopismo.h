@@ -6,7 +6,7 @@ class Czasopismo: public Publikacja
 protected:
     string data_wyd;
 public:
-    Czasopismo(string tytul="bez_tytulu", int typ=1, string data_wyd="bez_daty"): Publikacja(tytul,typ), data_wyd(data_wyd)
+    Czasopismo(string tytul="bez_tytulu", string gatunek="bez_gatunku", string data_wyd="bez_daty"): Publikacja(tytul,gatunek), data_wyd(data_wyd)
     {
 
     };
