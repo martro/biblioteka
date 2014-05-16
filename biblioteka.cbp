@@ -32,10 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="biblioteka.h" />
 		<Unit filename="czasopismo.h" />
 		<Unit filename="ksiazka.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="publikacja.h" />
+		<Unit filename="regal.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

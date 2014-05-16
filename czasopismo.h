@@ -13,15 +13,15 @@ public:
     ~Czasopismo()
     {
     };
-    void ustaw_date();
+    void ustaw_date(string data_wyd);
     void wyswietl();
     string jaka_data();
 };
 
-void Czasopismo:: ustaw_date()
+void Czasopismo:: ustaw_date(string data_wyd)
 {
-    cout<<"Data wydania: ";
-    cin>>data_wyd;
+        cout<<"\nNowa data (poprz: "<<this->jaka_data()<<": ";
+        this->data_wyd=data_wyd;
 }
 
 void Czasopismo:: wyswietl()

@@ -43,6 +43,10 @@ public:
     void pop_czas(int poz);
     int znajdz_ks(int numer_bib);
     int znajdz_czas(int numer_bib);
+    void edytuj_ks(int poz,string tytul, string autor);
+    void edytuj_czas(int poz,string tytul, string data_wyd);
+    string jaki_autor(int poz);
+    string jaka_data(int poz);
 
 
 
@@ -175,6 +179,28 @@ void Regal:: wyswietl(Czasopismo)
 string Regal:: jaka_tematyka()
 {
     return this->tematyka;
+}
+
+void Regal:: edytuj_ks(int poz,string tytul, string autor)
+{
+    this->v_ks.at(poz).ustaw_tytul(tytul);
+    this->v_ks.at(poz).ustaw_autora(autor);
+}
+
+
+void Regal:: edytuj_czas(int poz,string tytul, string data_wyd)
+{
+    this->v_czas.at(poz).ustaw_tytul(tytul);
+    this->v_czas.at(poz).ustaw_date(data_wyd);
+}
+
+string Regal:: jaki_autor(int poz)
+{
+    return this->v_ks.at(poz).jaki_tytul();
+}
+string Regal:: jaka_data(int poz)
+{
+    return this->v_czas.at(poz).jaka_data();
 }
 
 

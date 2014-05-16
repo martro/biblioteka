@@ -25,10 +25,9 @@ public:
     };
 
 
-    void ustaw_tytul()
+    void ustaw_tytul(string tytul)
     {
-        cout<<"Tytul: ";
-        cin>>tytul;
+       this->tytul=tytul;
     }
 
     void ustaw_nr_bib(int numer_bib)

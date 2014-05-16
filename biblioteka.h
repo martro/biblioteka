@@ -3,6 +3,7 @@
 
 #include "regal.h"
 
+
 class Biblioteka
 {
 
@@ -32,7 +33,9 @@ public:
     void init();
     void zwieksz_il_pub();
     void usun_publikacje(int numer_bib);
+    void szukaj_tytul(string tytul);
     int znajdz_publikacje(int numer_pub);
+    void edytuj_publikacje(int numer_bib);
 };
 
 void Biblioteka:: push(Regal regal)
@@ -50,6 +53,27 @@ void Biblioteka:: wyswietl_regaly()
         cout<<"\nRegal: "<<i<<". ";
         v_reg.at(i).wyswietl_tematyke();
         v_reg.at(i).wyswietl();
+    }
+}
+
+void Biblioteka:: szukaj_tytul(string tytul)
+{
+    int max=v_pub.size();
+
+    for (int i=0; i<max; i++)
+    {
+        //cout<<"temat: "<<v_pub.at(i).jaki_tytul();
+        if (int(v_pub.at(i).jaki_tytul().find(tytul))!=-1)
+        {
+            cout<<"\n"<<i<<". ";
+            cout<<"[";
+            if (v_pub.at(i).jaki_typ()==0)
+                cout<<"Ksiazka";
+            if (v_pub.at(i).jaki_typ()==1)
+                cout<<"Czasopismo";
+            cout<<"] ";
+            v_pub.at(i).wyswietl();
+        }
     }
 }
 
@@ -129,6 +153,55 @@ int Biblioteka:: szukaj_regal(string nazwa_regalu)
     if (czy_istnieje==0)
         i=-1;
     return i;
+}
+
+void Biblioteka:: edytuj_publikacje(int numer_bib)
+{
+   int max=this->ile_pub();
+    string tematyka;
+    string tytul;
+    string autor;
+    string data_wyd;
+
+    int miejsce_na_polce,numer_regalu;
+
+    int poz=znajdz_publikacje(numer_bib);
+
+    cout<<"\nNowy tytul (poprz: "<<this->v_pub.at(poz).jaki_tytul()<<": ";
+    getline (cin,tytul);
+
+    tematyka=v_pub.at(poz).jaka_tematyka();
+
+
+    numer_regalu=szukaj_regal(tematyka);
+    miejsce_na_polce=v_reg.at(numer_regalu).znajdz_ks(numer_bib);
+
+    if (miejsce_na_polce>=0)
+    {
+        cout<<"\nNowy autor (poprz: "<<this->v_reg.at(numer_regalu).jaki_autor(miejsce_na_polce)<<": ";
+        getline (cin,autor);
+        v_reg.at(numer_regalu).edytuj_ks(miejsce_na_polce,tytul,autor);
+    }
+
+    miejsce_na_polce=v_reg.at(numer_regalu).znajdz_czas(numer_bib);
+
+    if (miejsce_na_polce>=0)
+    {
+        cout<<"\nNowy autor (poprz: "<<this->v_reg.at(numer_regalu).jaka_data(miejsce_na_polce)<<": ";
+        getline (cin,autor);
+        v_reg.at(numer_regalu).edytuj_czas(miejsce_na_polce,tytul,data_wyd);
+    }
+
+    v_pub.at(poz).ustaw_tytul(tytul);
+
+    if (poz>=0)
+    {
+        if ((numer_bib>0)&&(numer_bib<=max))
+        {
+
+        }
+        else cout<<"\nNiepoprawny numer biblioteczny.\n";
+    }
 }
 
 void Biblioteka:: dodaj_publikacje(Ksiazka ks)

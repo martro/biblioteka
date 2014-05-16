@@ -18,15 +18,15 @@ public:
     {
     };
 
-       void ustaw_autora();
+       void ustaw_autora(string autor);
         void wyswietl();
         string jaki_autor();
 };
 
-   void Ksiazka:: ustaw_autora()
+   void Ksiazka:: ustaw_autora(string autor)
     {
-        cout<<"Autor: ";
-        cin>>autor;
+        cout<<"\nNowy autor (poprz: "<<this->jaki_autor()<<": ";
+        this->autor=autor;
     }
 
     void Ksiazka:: wyswietl()
