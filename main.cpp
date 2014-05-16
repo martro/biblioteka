@@ -12,6 +12,8 @@ int main()
 {
     Biblioteka bib;
 
+    bib.init();
+
     Ksiazka ks1("Inferno","Sensacja","Dan Brown");//tytul, gatunek, autor
     Ksiazka ks2("Szesc lat pozniej","Sensacja","Harlan Coben");
     Ksiazka ks3("Surely you are joking Mr. Feynman","Biografia", "R.Feynman");

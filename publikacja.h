@@ -16,6 +16,7 @@ public:
 
     Publikacja(string tytul="brak_tytulu", string gatunek="brak_gatunku",int typ=0):tytul(tytul),gatunek(gatunek),typ(typ)
     {
+        numer_bib=0;
 
     };
     ~Publikacja()
@@ -30,19 +31,30 @@ public:
         cin>>tytul;
     }
 
-    void generuj_nr_bib()
+    void ustaw_nr_bib(int numer_bib)
     {
-        cout<<"Wygenerowany numer biblioteczny: "<<numer_bib;
+        this->numer_bib=numer_bib;
     }
     virtual void wyswietl()
     {
-        cout<<tytul;
+        cout<<"\""<<tytul<<"\", "<<numer_bib;
     }
 
     string jaka_tematyka()
     {
         return gatunek;
     }
+
+    int jaki_typ()
+    {
+        return typ;
+    }
+
+    int jaki_numer_bib()
+    {
+        return numer_bib;
+    }
+
 };
 
 #endif // PUBLIKACJA_H_INCLUDED

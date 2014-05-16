@@ -9,10 +9,13 @@ class Biblioteka
 private:
 
     vector<Regal> v_reg;
+    vector<Publikacja> v_pub;
 
     int czy_istnieje_regal(string nazwa_regalu);
     int szukaj_regal(string nazwa_regalu);
     void push(Regal regal);
+
+    int il_publikacji;
 
 public:
 
@@ -23,6 +26,9 @@ public:
     void dodaj_publikacje(Czasopismo czas);
     void dodaj_regal(Regal reg);
     void wyswietl();
+    int ile_pub();
+    void init();
+    void zwieksz_il_pub();
 };
 
     void Biblioteka:: push(Regal regal)
@@ -43,6 +49,16 @@ public:
             v_reg.at(i).wyswietl();
             cout<<endl;
         }
+
+        cout<<"\nWszystkie publikacje:\n\n";
+
+        max=v_pub.size();
+        for (int i=0; i<max; i++)
+        {
+            cout<<"\n"<<i<<". ";
+            v_pub.at(i).wyswietl();
+        }
+
     }
 
     void Biblioteka:: dodaj_regal(Regal reg)
@@ -111,6 +127,7 @@ int Biblioteka:: czy_istnieje_regal(string nazwa_regalu)
 void Biblioteka:: dodaj_publikacje(Ksiazka ks)
     {
         Regal reg(ks.jaka_tematyka());
+        Publikacja pub(ks.jaki_tytul(),ks.jaka_tematyka(),ks.jaki_typ());
         int poz;
 
         poz=szukaj_regal(ks.jaka_tematyka());
@@ -123,6 +140,11 @@ void Biblioteka:: dodaj_publikacje(Ksiazka ks)
 
         if (poz>=0)
             v_reg.at(poz).push(ks);
+
+        int numer_bib=v_pub.size()+1;
+        this->zwieksz_il_pub();
+        pub.ustaw_nr_bib(numer_bib);
+        v_pub.push_back(pub);
     }
 
 void Biblioteka:: dodaj_publikacje(Czasopismo czas)
@@ -140,6 +162,21 @@ void Biblioteka:: dodaj_publikacje(Czasopismo czas)
 
     if (poz>=0)
         v_reg.at(poz).push(czas);
+}
+
+int Biblioteka:: ile_pub()
+{
+    return il_publikacji;
+}
+
+void Biblioteka:: zwieksz_il_pub()
+{
+    il_publikacji++;
+}
+
+void Biblioteka:: init()
+{
+    il_publikacji=0;
 }
 
 #endif // BIBLIOTEKA_H_INCLUDED

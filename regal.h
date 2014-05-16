@@ -36,6 +36,7 @@ public:
     void wyswietl(Ksiazka);
     void wyswietl(Czasopismo);
     string jaka_tematyka();
+
     void push(Ksiazka ksiazka);
     void push(Czasopismo czasopismo);
 
