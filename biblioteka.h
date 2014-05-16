@@ -165,7 +165,7 @@ int Biblioteka:: szukaj_regal(string nazwa_regalu)
 
 void Biblioteka:: edytuj_publikacje(int numer_bib)
 {
-   int max=this->ile_pub();
+    int max=this->ile_pub();
     string tematyka;
     string tytul;
     string autor;
@@ -342,26 +342,43 @@ void Biblioteka:: init()
     il_publikacji=0;
 }
 
-    string Biblioteka:: jaki_adres()
-    {
-        return adres;
-    }
-    void Biblioteka:: ustaw_adres(string adres)
-    {
-        this->adres=adres;
-    }
+string Biblioteka:: jaki_adres()
+{
+    return adres;
+}
+void Biblioteka:: ustaw_adres(string adres)
+{
+    this->adres=adres;
+}
 
 void Biblioteka::zapisz()
 {
+
+
     xml_document doc;
     xml_node bib=doc.append_child("Biblioteka");
     bib.append_attribute("Adres")=this->jaki_adres().c_str();
 
-    for (int i=0;i<this->ile_regalow();i++)
+    for (int i=0; i<this->ile_regalow(); i++)
     {
         xml_node regal=bib.append_child("Regal");
         regal.append_attribute("Tematyka")=v_reg.at(i).jaka_tematyka().c_str();
 
+        for(int j=0;j<v_reg.at(i).ile_ks();j++)
+        {
+             xml_node ksiazka=regal.append_child("Ksiazka");
+            ksiazka.append_attribute("Tytul")=v_reg.at(i).ksiazka(j).jaki_tytul().c_str();
+            ksiazka.append_attribute("Autor")=v_reg.at(i).ksiazka(j).jaki_autor().c_str();
+            ksiazka.append_attribute("Numer biblioteczny")=v_reg.at(i).ksiazka(j).jaki_numer_bib();
+        }
+
+        for(int j=0;j<v_reg.at(i).ile_czas();j++)
+        {
+             xml_node ksiazka=regal.append_child("Czasopismo");
+            ksiazka.append_attribute("Tytul")=v_reg.at(i).czasopismo(j).jaki_tytul().c_str();
+            ksiazka.append_attribute("Data wydania")=v_reg.at(i).czasopismo(j).jaka_data().c_str();
+            ksiazka.append_attribute("Numer biblioteczny")=v_reg.at(i).czasopismo(j).jaki_numer_bib();
+        }
     }
 
     doc.save_file("biblioteka.txt");
@@ -369,8 +386,8 @@ void Biblioteka::zapisz()
 
 int Biblioteka::wczytaj()
 {
-        xml_document doc;
-if (!doc.load_file("biblioteka.txt"))
+    xml_document doc;
+    if (!doc.load_file("biblioteka.txt"))
         return -1;
     xml_node b=doc.child("Biblioteka");
     cout<<"Biblioteka: ";

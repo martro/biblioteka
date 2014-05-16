@@ -13,7 +13,7 @@
 1400269798 c:\users\martro\documents\github\biblioteka\ksiazka.h
 	"publikacja.h"
 
-1400269660 c:\users\martro\documents\github\biblioteka\regal.h
+1400276213 c:\users\martro\documents\github\biblioteka\regal.h
 	"publikacja.h"
 	"ksiazka.h"
 	"czasopismo.h"
@@ -21,7 +21,7 @@
 
 1400269813 c:\users\martro\documents\github\biblioteka\czasopismo.h
 
-1400274993 c:\users\martro\documents\github\biblioteka\biblioteka.h
+1400276929 c:\users\martro\documents\github\biblioteka\biblioteka.h
 	"regal.h"
 	"pugixml.hpp"
 

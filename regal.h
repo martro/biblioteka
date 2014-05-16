@@ -47,6 +47,10 @@ public:
     void edytuj_czas(int poz,string tytul, string data_wyd);
     string jaki_autor(int poz);
     string jaka_data(int poz);
+    int ile_ks();
+    int ile_czas();
+    Ksiazka ksiazka(int poz);
+    Czasopismo czasopismo(int poz);
 
 
 
@@ -203,6 +207,25 @@ string Regal:: jaka_data(int poz)
     return this->v_czas.at(poz).jaka_data();
 }
 
+int Regal:: ile_ks()
+{
+    return v_ks.size();
+}
+
+int Regal:: ile_czas()
+{
+    return v_czas.size();
+}
+
+Ksiazka Regal:: ksiazka(int poz)
+{
+    return this->v_ks.at(poz);
+}
+
+Czasopismo Regal:: czasopismo(int poz)
+{
+    return this->v_czas.at(poz);
+}
 
 
 #endif // REGAL_H_INCLUDED

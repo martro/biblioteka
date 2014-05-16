@@ -1,6 +1,17 @@
 <?xml version="1.0"?>
 <Biblioteka Adres="albatros">
-	<Regal Tematyka="Przyrodnicze" />
-	<Regal Tematyka="Sensacja" />
-	<Regal Tematyka="Biografia" />
+	<Regal Tematyka="Przyrodnicze">
+		<Czasopismo Tytul="National Geographic" Data wydania="15/05/14" Numer biblioteczny="1" />
+	</Regal>
+	<Regal Tematyka="Sensacja">
+		<Ksiazka Tytul="Inferno" Autor="Dan Brown" Numer biblioteczny="2" />
+		<Ksiazka Tytul="Szesc lat pozniej" Autor="Harlan Coben" Numer biblioteczny="3" />
+		<Ksiazka Tytul="Inferno2" Autor="Dan Brown" Numer biblioteczny="6" />
+		<Ksiazka Tytul="Inferno3" Autor="Dan Brown" Numer biblioteczny="7" />
+		<Ksiazka Tytul="Inferno4" Autor="Dan Brown" Numer biblioteczny="8" />
+		<Czasopismo Tytul="Zbrodnie w ciemnosci" Data wydania="01/01/14" Numer biblioteczny="5" />
+	</Regal>
+	<Regal Tematyka="Biografia">
+		<Ksiazka Tytul="Surely you are joking Mr. Feynman" Autor="R.Feynman" Numer biblioteczny="4" />
+	</Regal>
 </Biblioteka>
