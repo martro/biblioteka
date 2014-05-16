@@ -35,12 +35,22 @@ int main()
     bib.dodaj_publikacje(ks6);
 
 
-    bib.usun_publikacje(2);
+
 
 
     bib.wyswietl_regaly();
     bib.wyswietl_index_pub();
 
+    //bib.usun_publikacje(1);
+    bib.usun_publikacje(2);
+    bib.usun_publikacje(3);
+    bib.usun_publikacje(4);
+    bib.usun_publikacje(6);
+    bib.usun_publikacje(7);
+    bib.usun_publikacje(8);
+
+    bib.wyswietl_regaly();
+    bib.wyswietl_index_pub();
 
     return 0;
 }
