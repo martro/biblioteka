@@ -40,7 +40,9 @@ public:
     void push(Ksiazka ksiazka);
     void push(Czasopismo czasopismo);
     void pop_ks(int poz);
+    void pop_czas(int poz);
     int znajdz_ks(int numer_bib);
+    int znajdz_czas(int numer_bib);
 
 
 
@@ -65,25 +67,57 @@ int czy_istnieje=0;
  int max=v_ks.size();
     int i=0;
 
+        if (max)
         do
         {
-            cout<<v_ks.at(i).jaki_numer_bib();
             if (v_ks.at(i).jaki_numer_bib()==numer_bib)
             {
                 czy_istnieje=1;
-                cout<<"\n\n\nZNALAZLEM: "<<i<<", ";
             }
             i++;
         }
         while (i<max && czy_istnieje==0);
     i--;
+
+    if (czy_istnieje==0)
+        i=-1;
+
+    return i;
+}
+
+int Regal:: znajdz_czas(int numer_bib)
+{
+int czy_istnieje=0;
+ int max=v_czas.size();
+    int i=0;
+
+    cout<<"gggggggggggggggggggg";
+
+        if (max)
+        do
+        {
+            if (v_czas.at(i).jaki_numer_bib()==numer_bib)
+            {
+                czy_istnieje=1;
+            }
+            i++;
+        }
+        while (i<max && czy_istnieje==0);
+    i--;
+
+    if (czy_istnieje==0)
+        i=-1;
+
     return i;
 }
 
 void Regal:: pop_ks(int poz)
 {
-    cout<<"\n\nUSUWAM: "<<v_ks.at(poz).jaki_tytul()<<endl;
     v_ks.erase(v_ks.begin()+poz);
+}
+void Regal:: pop_czas(int poz)
+{
+    v_czas.erase(v_czas.begin()+poz);
 }
 
 void Regal:: wyswietl_tematyke()

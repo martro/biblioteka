@@ -46,7 +46,7 @@ void Biblioteka:: wyswietl_regaly()
     int max=v_reg.size();
     for (int i=0; i<max; i++)
     {
-        cout<<"_\n__________________________";
+        cout<<"\n__________________________";
         cout<<"\nRegal: "<<i<<". ";
         v_reg.at(i).wyswietl_tematyke();
         v_reg.at(i).wyswietl();
@@ -196,19 +196,22 @@ void Biblioteka:: usun_publikacje(int numer_bib)
 
     tematyka=v_pub.at(poz).jaka_tematyka();
 
+    cout<<"\n\nZNALAZLEM GO: "<<tematyka;
 
-
-    cout<<"\n\nusuwana ksiazka lezy na regale: "<<tematyka;
-    //cout<<"\nnumer na polce: "<<v_reg.at(poz).znajdz_ks(numer_bib);
 
     numer_regalu=szukaj_regal(tematyka);
-    cout<<"\naaaaaaaaa: ";
     miejsce_na_polce=v_reg.at(numer_regalu).znajdz_ks(numer_bib);
-    cout<<":aaaaaaaaa\n";
 
-    cout<<"\n\nszukana ksiazka, regal: "<<numer_regalu<<" miejsce: "<<miejsce_na_polce;
-
+    if (miejsce_na_polce>=0)
     v_reg.at(numer_regalu).pop_ks(miejsce_na_polce);
+
+    miejsce_na_polce=v_reg.at(numer_regalu).znajdz_czas(numer_bib);
+    /*
+    if (miejsce_na_polce>=0)
+    {
+    v_reg.at(numer_regalu).pop_czas(miejsce_na_polce);
+    cout<<"dupasdfvopmvnaeoinvr";
+    }*/
 
     if (poz>=0)
     {

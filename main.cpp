@@ -41,10 +41,11 @@ int main()
     bib.wyswietl_regaly();
     bib.wyswietl_index_pub();
 
-    //bib.usun_publikacje(1);
+    bib.usun_publikacje(1);
     bib.usun_publikacje(2);
     bib.usun_publikacje(3);
     bib.usun_publikacje(4);
+    bib.usun_publikacje(5);
     bib.usun_publikacje(6);
     bib.usun_publikacje(7);
     bib.usun_publikacje(8);
