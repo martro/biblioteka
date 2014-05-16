@@ -65,7 +65,9 @@ int main()
 
     bib.ustaw_adres("albatros");
 
-    //bib.wczytaj();
     bib.zapisz();
+
+
+    bib.wczytaj();
 
 }

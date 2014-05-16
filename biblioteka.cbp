@@ -37,6 +37,9 @@
 		<Unit filename="ksiazka.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="publikacja.h" />
+		<Unit filename="pugiconfig.hpp" />
+		<Unit filename="pugixml.cpp" />
+		<Unit filename="pugixml.hpp" />
 		<Unit filename="regal.h" />
 		<Extensions>
 			<code_completion />

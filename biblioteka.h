@@ -1,6 +1,8 @@
 #ifndef BIBLIOTEKA_H_INCLUDED
 #define BIBLIOTEKA_H_INCLUDED
 
+#include <string>
+#include <sstream>
 #include "regal.h"
 #include "pugixml.hpp"
 
@@ -353,8 +355,6 @@ void Biblioteka:: ustaw_adres(string adres)
 
 void Biblioteka::zapisz()
 {
-
-
     xml_document doc;
     xml_node bib=doc.append_child("Biblioteka");
     bib.append_attribute("Adres")=this->jaki_adres().c_str();
@@ -364,20 +364,27 @@ void Biblioteka::zapisz()
         xml_node regal=bib.append_child("Regal");
         regal.append_attribute("Tematyka")=v_reg.at(i).jaka_tematyka().c_str();
 
-        for(int j=0;j<v_reg.at(i).ile_ks();j++)
+        for(int j=0; j<v_reg.at(i).ile_ks(); j++)
         {
-             xml_node ksiazka=regal.append_child("Ksiazka");
+            /*
+            string tekst;
+
+            std::stringstream ss;
+            ss << 5;
+            tekst=ss.str();*/
+
+            xml_node ksiazka=regal.append_child("Ksiazka");
             ksiazka.append_attribute("Tytul")=v_reg.at(i).ksiazka(j).jaki_tytul().c_str();
             ksiazka.append_attribute("Autor")=v_reg.at(i).ksiazka(j).jaki_autor().c_str();
-            ksiazka.append_attribute("Numer biblioteczny")=v_reg.at(i).ksiazka(j).jaki_numer_bib();
+            ksiazka.append_attribute("Numer_biblioteczny")=5;
         }
 
-        for(int j=0;j<v_reg.at(i).ile_czas();j++)
+        for(int j=0; j<v_reg.at(i).ile_czas(); j++)
         {
-             xml_node ksiazka=regal.append_child("Czasopismo");
+            xml_node ksiazka=regal.append_child("Czasopismo");
             ksiazka.append_attribute("Tytul")=v_reg.at(i).czasopismo(j).jaki_tytul().c_str();
-            ksiazka.append_attribute("Data wydania")=v_reg.at(i).czasopismo(j).jaka_data().c_str();
-            ksiazka.append_attribute("Numer biblioteczny")=v_reg.at(i).czasopismo(j).jaki_numer_bib();
+            ksiazka.append_attribute("Data_wydania")=v_reg.at(i).czasopismo(j).jaka_data().c_str();
+            ksiazka.append_attribute("Numer_biblioteczny")=v_reg.at(i).czasopismo(j).jaki_numer_bib();
         }
     }
 
@@ -386,12 +393,33 @@ void Biblioteka::zapisz()
 
 int Biblioteka::wczytaj()
 {
+    cout<<"\n\nWCZYTYWANIE: \n";
     xml_document doc;
+
     if (!doc.load_file("biblioteka.txt"))
         return -1;
     xml_node b=doc.child("Biblioteka");
     cout<<"Biblioteka: ";
     ustaw_adres(b.attribute("Adres").value());
+
+    for(xml_node r=b.child("Regal");r;r=r.next_sibling("Regal"))
+    {
+        cout<<"\tRegal tematyka: " <<r.attribute("Tematyka").value()<<endl;
+        for(xml_node k=r.child("Ksiazka");k;k=k.next_sibling("Ksiazka"))
+        {
+            cout<<"\t\tKsiazka: "<<k.attribute("Tytul").value()<<
+                  " \""<<k.attribute("Autor").value()<<"\""<<endl;
+            //modyfikacja zawartoœci
+            //k.append_attribute("Title").set_value("Nowy tytul");
+        }
+        for(xml_node c=r.child("Czasopismo");c;c=c.next_sibling("Czasopismo"))
+        {
+            cout<<"\t\tCzasopismo: "<<c.attribute("Autor").value()<<
+                  " \""<<c.attribute("Tytul").value()<<"\""<<endl;
+            //modyfikacja zawartoœci
+            //k.append_attribute("Title").set_value("Nowy tytul");
+        }
+    }
 
     return 0;
 }
