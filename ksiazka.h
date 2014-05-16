@@ -34,7 +34,7 @@ public:
         cout<<"\""<<tytul<<"\", "<<autor;
     }
 
-    string Ksiazka:: jaki_autor()
+string Ksiazka:: jaki_autor()
     {
         return autor;
     }

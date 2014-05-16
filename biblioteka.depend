@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1400260664 source:c:\users\martro\documents\github\biblioteka\main.cpp
+1400260683 source:c:\users\martro\documents\github\biblioteka\main.cpp
 	<iostream>
 	"publikacja.h"
 	"ksiazka.h"
@@ -10,10 +10,10 @@
 1400258204 c:\users\martro\documents\github\biblioteka\publikacja.h
 	<string>
 
-1400257967 c:\users\martro\documents\github\biblioteka\ksiazka.h
+1400260797 c:\users\martro\documents\github\biblioteka\ksiazka.h
 	"publikacja.h"
 
-1400260655 c:\users\martro\documents\github\biblioteka\regal.h
+1400260789 c:\users\martro\documents\github\biblioteka\regal.h
 	"publikacja.h"
 	"ksiazka.h"
 	"czasopismo.h"
@@ -21,6 +21,6 @@
 
 1400259065 c:\users\martro\documents\github\biblioteka\czasopismo.h
 
-1400260596 c:\users\martro\documents\github\biblioteka\biblioteka.h
+1400260794 c:\users\martro\documents\github\biblioteka\biblioteka.h
 	"regal.h"
 

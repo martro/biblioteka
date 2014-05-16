@@ -63,11 +63,11 @@ void Regal:: push(Czasopismo czasopismo)
 
 int Regal:: znajdz_ks(int numer_bib)
 {
-int czy_istnieje=0;
- int max=v_ks.size();
+    int czy_istnieje=0;
+    int max=v_ks.size();
     int i=0;
 
-        if (max)
+    if (max)
         do
         {
             if (v_ks.at(i).jaki_numer_bib()==numer_bib)
@@ -87,13 +87,11 @@ int czy_istnieje=0;
 
 int Regal:: znajdz_czas(int numer_bib)
 {
-int czy_istnieje=0;
- int max=v_czas.size();
+    int czy_istnieje=0;
+    int max=v_czas.size();
     int i=0;
 
-    cout<<"gggggggggggggggggggg";
-
-        if (max)
+    if (max)
         do
         {
             if (v_czas.at(i).jaki_numer_bib()==numer_bib)

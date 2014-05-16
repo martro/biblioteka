@@ -196,30 +196,27 @@ void Biblioteka:: usun_publikacje(int numer_bib)
 
     tematyka=v_pub.at(poz).jaka_tematyka();
 
-    cout<<"\n\nZNALAZLEM GO: "<<tematyka;
-
 
     numer_regalu=szukaj_regal(tematyka);
     miejsce_na_polce=v_reg.at(numer_regalu).znajdz_ks(numer_bib);
 
     if (miejsce_na_polce>=0)
-    v_reg.at(numer_regalu).pop_ks(miejsce_na_polce);
+        v_reg.at(numer_regalu).pop_ks(miejsce_na_polce);
 
     miejsce_na_polce=v_reg.at(numer_regalu).znajdz_czas(numer_bib);
-    /*
+
     if (miejsce_na_polce>=0)
     {
-    v_reg.at(numer_regalu).pop_czas(miejsce_na_polce);
-    cout<<"dupasdfvopmvnaeoinvr";
-    }*/
+        v_reg.at(numer_regalu).pop_czas(miejsce_na_polce);
+    }
 
     if (poz>=0)
     {
-    if ((numer_bib>0)&&(numer_bib<=max))
-    {
-        v_pub.erase(v_pub.begin()+poz);
-    }
-    else cout<<"\nNiepoprawny numer biblioteczny.\n";
+        if ((numer_bib>0)&&(numer_bib<=max))
+        {
+            v_pub.erase(v_pub.begin()+poz);
+        }
+        else cout<<"\nNiepoprawny numer biblioteczny.\n";
     }
 }
 
@@ -229,15 +226,15 @@ int Biblioteka:: znajdz_publikacje(int numer_bib)
     int i=0;
     int czy_istnieje=0;
 
-        do
+    do
+    {
+        if (v_pub.at(i).jaki_numer_bib()==numer_bib)
         {
-            if (v_pub.at(i).jaki_numer_bib()==numer_bib)
-            {
-                czy_istnieje=1;
-            }
-            i++;
+            czy_istnieje=1;
         }
-        while (i<max && czy_istnieje==0);
+        i++;
+    }
+    while (i<max && czy_istnieje==0);
     i--;
     if (czy_istnieje==0)
         i=-1;
