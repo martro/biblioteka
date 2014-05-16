@@ -27,12 +27,15 @@ int main()
     bib.dodaj_publikacje(ks2);
     bib.dodaj_publikacje(ks3);
     bib.dodaj_publikacje(czas2);
+    bib.usun_publikacje(5);
+    bib.usun_publikacje(1);
+    bib.usun_publikacje(3);
+    bib.usun_publikacje(4);
     bib.usun_publikacje(2);
 
     bib.wyswietl_regaly();
     bib.wyswietl_index_pub();
 
-    cout<<"test: "<<bib.znajdz_publikacje(3);
 
     return 0;
 }

@@ -183,16 +183,24 @@ void Biblioteka:: dodaj_publikacje(Czasopismo czas)
 
 void Biblioteka:: usun_publikacje(int numer_bib)
 {
-    v_pub.erase(v_pub.begin()+znajdz_publikacje(numer_bib));
+    int max=this->ile_pub();
+    int poz=znajdz_publikacje(numer_bib);
+    if (poz>=0)
+    {
+    if ((numer_bib>0)&&(numer_bib<=max))
+    {
+        v_pub.erase(v_pub.begin()+poz);
+    }
+    else cout<<"\nNiepoprawny numer biblioteczny.\n";
+    }
 }
 
 int Biblioteka:: znajdz_publikacje(int numer_bib)
 {
-    int max=v_pub.size();
+    int max=this->ile_pub();
     int i=0;
     int czy_istnieje=0;
 
-    if (max)
         do
         {
             if (v_pub.at(i).jaki_numer_bib()==numer_bib)
