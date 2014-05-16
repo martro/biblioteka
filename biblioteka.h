@@ -30,6 +30,8 @@ public:
     int ile_pub();
     void init();
     void zwieksz_il_pub();
+    void usun_publikacje(int numer_bib);
+    int znajdz_publikacje(int numer_pub);
 };
 
 void Biblioteka:: push(Regal regal)
@@ -177,6 +179,34 @@ void Biblioteka:: dodaj_publikacje(Czasopismo czas)
     pub.ustaw_nr_bib(numer_bib);
     pub.ustaw_typ(1);
     v_pub.push_back(pub);
+}
+
+void Biblioteka:: usun_publikacje(int numer_bib)
+{
+    v_pub.erase(v_pub.begin()+znajdz_publikacje(numer_bib));
+}
+
+int Biblioteka:: znajdz_publikacje(int numer_bib)
+{
+    int max=v_pub.size();
+    int i=0;
+    int czy_istnieje=0;
+
+    if (max)
+        do
+        {
+            if (v_pub.at(i).jaki_numer_bib()==numer_bib)
+            {
+                cout<<"Regal o podanej tematyce istnieje. Nie zostal utworzony nowy.";
+                czy_istnieje=1;
+            }
+            i++;
+        }
+        while (i<max && czy_istnieje==0);
+    i--;
+    if (czy_istnieje==0)
+        i=-1;
+    return i;
 }
 
 int Biblioteka:: ile_pub()
