@@ -45,6 +45,11 @@ public:
         return gatunek;
     }
 
+    string jaki_tytul()
+    {
+        return tytul;
+    }
+
     int jaki_typ()
     {
         return typ;

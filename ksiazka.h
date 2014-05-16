@@ -22,9 +22,6 @@ public:
        void ustaw_autora();
         void wyswietl();
         string jaki_autor();
-        string jaki_tytul();
-
-
 };
 
    void Ksiazka:: ustaw_autora()
@@ -43,10 +40,7 @@ public:
         return autor;
     }
 
-    string Ksiazka:: jaki_tytul()
-    {
-        return tytul;
-    }
+
 
 
 #endif // KSIAZKA_H_INCLUDED

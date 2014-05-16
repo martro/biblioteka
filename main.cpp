@@ -22,11 +22,11 @@ int main()
     Czasopismo czas2("Zbrodnie w ciemnosci", "Sensacja","01/01/14");
     Czasopismo czas3;
 
-
+    bib.dodaj_publikacje(czas1);
     bib.dodaj_publikacje(ks1);
     bib.dodaj_publikacje(ks2);
     bib.dodaj_publikacje(ks3);
-    bib.dodaj_publikacje(czas1);
+
     bib.dodaj_publikacje(czas2);
 
     bib.wyswietl();

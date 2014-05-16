@@ -7,10 +7,10 @@
 	"czasopismo.h"
 	"biblioteka.h"
 
-1400237907 c:\users\martro\documents\github\biblioteka\publikacja.h
+1400238170 c:\users\martro\documents\github\biblioteka\publikacja.h
 	<string>
 
-1400189368 c:\users\martro\documents\github\biblioteka\ksiazka.h
+1400238168 c:\users\martro\documents\github\biblioteka\ksiazka.h
 	"publikacja.h"
 
 1400190648 c:\users\martro\documents\github\biblioteka\regal.h
@@ -21,6 +21,6 @@
 
 1400190401 c:\users\martro\documents\github\biblioteka\czasopismo.h
 
-1400237829 c:\users\martro\documents\github\biblioteka\biblioteka.h
+1400238177 c:\users\martro\documents\github\biblioteka\biblioteka.h
 	"regal.h"
 
