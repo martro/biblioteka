@@ -58,11 +58,14 @@ int main()
     cout<<"\n\nWyszukiwanie: ";
     bib.szukaj_tytul("Na");
 
-    bib.edytuj_publikacje(4);
+    //bib.edytuj_publikacje(4);
 
     bib.wyswietl_regaly();
     bib.wyswietl_index_pub();
 
+    bib.ustaw_adres("albatros");
 
+    //bib.wczytaj();
+    bib.zapisz();
 
 }

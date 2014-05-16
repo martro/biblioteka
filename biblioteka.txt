@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Biblioteka Adres="albatros">
+	<Regal Tematyka="Przyrodnicze" />
+	<Regal Tematyka="Sensacja" />
+	<Regal Tematyka="Biografia" />
+</Biblioteka>

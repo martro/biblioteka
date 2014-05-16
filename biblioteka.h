@@ -2,8 +2,9 @@
 #define BIBLIOTEKA_H_INCLUDED
 
 #include "regal.h"
+#include "pugixml.hpp"
 
-
+using namespace pugi;
 class Biblioteka
 {
 
@@ -11,6 +12,8 @@ private:
 
     vector<Regal> v_reg;
     vector<Publikacja> v_pub;
+
+    string adres;
 
     int czy_istnieje_regal(string nazwa_regalu);
     int szukaj_regal(string nazwa_regalu);
@@ -36,6 +39,11 @@ public:
     void szukaj_tytul(string tytul);
     int znajdz_publikacje(int numer_pub);
     void edytuj_publikacje(int numer_bib);
+    void zapisz();
+    int  wczytaj();
+    int ile_regalow();
+    string jaki_adres();
+    void ustaw_adres(string adres);
 };
 
 void Biblioteka:: push(Regal regal)
@@ -319,6 +327,11 @@ int Biblioteka:: ile_pub()
     return il_publikacji;
 }
 
+int Biblioteka:: ile_regalow()
+{
+    return v_reg.size();
+}
+
 void Biblioteka:: zwieksz_il_pub()
 {
     il_publikacji++;
@@ -327,6 +340,43 @@ void Biblioteka:: zwieksz_il_pub()
 void Biblioteka:: init()
 {
     il_publikacji=0;
+}
+
+    string Biblioteka:: jaki_adres()
+    {
+        return adres;
+    }
+    void Biblioteka:: ustaw_adres(string adres)
+    {
+        this->adres=adres;
+    }
+
+void Biblioteka::zapisz()
+{
+    xml_document doc;
+    xml_node bib=doc.append_child("Biblioteka");
+    bib.append_attribute("Adres")=this->jaki_adres().c_str();
+
+    for (int i=0;i<this->ile_regalow();i++)
+    {
+        xml_node regal=bib.append_child("Regal");
+        regal.append_attribute("Tematyka")=v_reg.at(i).jaka_tematyka().c_str();
+
+    }
+
+    doc.save_file("biblioteka.txt");
+}
+
+int Biblioteka::wczytaj()
+{
+        xml_document doc;
+if (!doc.load_file("biblioteka.txt"))
+        return -1;
+    xml_node b=doc.child("Biblioteka");
+    cout<<"Biblioteka: ";
+    ustaw_adres(b.attribute("Adres").value());
+
+    return 0;
 }
 
 #endif // BIBLIOTEKA_H_INCLUDED

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1400269990 source:c:\users\martro\documents\github\biblioteka\main.cpp
+1400274808 source:c:\users\martro\documents\github\biblioteka\main.cpp
 	<iostream>
 	"publikacja.h"
 	"ksiazka.h"
@@ -21,6 +21,33 @@
 
 1400269813 c:\users\martro\documents\github\biblioteka\czasopismo.h
 
-1400269719 c:\users\martro\documents\github\biblioteka\biblioteka.h
+1400274993 c:\users\martro\documents\github\biblioteka\biblioteka.h
 	"regal.h"
+	"pugixml.hpp"
+
+1393267650 c:\users\martro\documents\github\biblioteka\pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1393267684 c:\users\martro\documents\github\biblioteka\pugiconfig.hpp
+
+1393421746 source:c:\users\martro\documents\github\biblioteka\pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<setjmp.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<stdint.h>
 
