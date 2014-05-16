@@ -8,7 +8,7 @@ protected:
 public:
     Czasopismo(string tytul="bez_tytulu", string gatunek="bez_gatunku", string data_wyd="bez_daty"): Publikacja(tytul,gatunek), data_wyd(data_wyd)
     {
-
+        ustaw_typ(1);
     };
     ~Czasopismo()
     {

@@ -50,6 +50,10 @@ public:
         return tytul;
     }
 
+    void ustaw_typ(int typ)
+    {
+        this->typ=typ;
+    }
     int jaki_typ()
     {
         return typ;

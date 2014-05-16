@@ -25,7 +25,8 @@ public:
     void dodaj_publikacje(Ksiazka ks);
     void dodaj_publikacje(Czasopismo czas);
     void dodaj_regal(Regal reg);
-    void wyswietl();
+    void wyswietl_regaly();
+    void wyswietl_index_pub();
     int ile_pub();
     void init();
     void zwieksz_il_pub();
@@ -37,28 +38,35 @@ void Biblioteka:: push(Regal regal)
     v_reg.push_back (regal);
 }
 
-void Biblioteka:: wyswietl()
+void Biblioteka:: wyswietl_regaly()
 {
     cout<<endl;
     int max=v_reg.size();
     for (int i=0; i<max; i++)
     {
-        cout<<"___________________________";
+        cout<<"_\n__________________________";
         cout<<"\nRegal: "<<i<<". ";
         v_reg.at(i).wyswietl_tematyke();
         v_reg.at(i).wyswietl();
-        cout<<endl;
     }
+}
 
+void Biblioteka:: wyswietl_index_pub()
+{
     cout<<"\nWszystkie publikacje:\n\n";
 
-    max=v_pub.size();
+    int max=v_pub.size();
     for (int i=0; i<max; i++)
     {
         cout<<"\n"<<i<<". ";
+        cout<<"[";
+        if (v_pub.at(i).jaki_typ()==0)
+            cout<<"Ksiazka";
+        if (v_pub.at(i).jaki_typ()==1)
+            cout<<"Czasopismo";
+        cout<<"] ";
         v_pub.at(i).wyswietl();
     }
-
 }
 
 void Biblioteka:: dodaj_regal(Regal reg)
@@ -167,6 +175,7 @@ void Biblioteka:: dodaj_publikacje(Czasopismo czas)
     int numer_bib=v_pub.size()+1;
     this->zwieksz_il_pub();
     pub.ustaw_nr_bib(numer_bib);
+    pub.ustaw_typ(1);
     v_pub.push_back(pub);
 }
 

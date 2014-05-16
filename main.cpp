@@ -26,10 +26,10 @@ int main()
     bib.dodaj_publikacje(ks1);
     bib.dodaj_publikacje(ks2);
     bib.dodaj_publikacje(ks3);
-
     bib.dodaj_publikacje(czas2);
 
-    bib.wyswietl();
+    bib.wyswietl_regaly();
+    bib.wyswietl_index_pub();
 
     return 0;
 }
