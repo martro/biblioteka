@@ -14,6 +14,7 @@ private:
     int czy_istnieje_regal(string nazwa_regalu);
     int szukaj_regal(string nazwa_regalu);
     void push(Regal regal);
+    void usun_z_regalu();
 
     int il_publikacji;
 
@@ -36,7 +37,6 @@ public:
 
 void Biblioteka:: push(Regal regal)
 {
-    cout<<"\nDodawanie regalu\n";
     v_reg.push_back (regal);
 }
 
@@ -92,10 +92,9 @@ int Biblioteka:: czy_istnieje_regal(string nazwa_regalu)
     if (max)
         do
         {
-            cout<<"\ntest: "<<v_reg.at(i).jaka_tematyka()<<" "<<nazwa_regalu;
             if (v_reg.at(i).jaka_tematyka()==nazwa_regalu)
             {
-                cout<<"Regal o podanej tematyce istnieje. Nie zostal utworzony nowy.";
+                cout<<"\nRegal o podanej tematyce istnieje. Nie zostal utworzony nowy.";
                 czy_istnieje=1;
             }
             i++;
@@ -117,10 +116,8 @@ int Biblioteka:: szukaj_regal(string nazwa_regalu)
     if (max)
         do
         {
-            cout<<"\ntest: "<<v_reg.at(i).jaka_tematyka()<<" "<<nazwa_regalu;
             if (v_reg.at(i).jaka_tematyka()==nazwa_regalu)
             {
-                cout<<"Regal o podanej tematyce istnieje.";
                 czy_istnieje=1;
             }
             i++;
@@ -142,6 +139,13 @@ void Biblioteka:: dodaj_publikacje(Ksiazka ks)
 
     poz=szukaj_regal(ks.jaka_tematyka());
 
+
+
+    int numer_bib=v_pub.size()+1;
+    this->zwieksz_il_pub();
+    pub.ustaw_nr_bib(numer_bib);
+    ks.ustaw_nr_bib(numer_bib);
+
     if (poz==-1)
     {
         reg.push(ks);
@@ -150,10 +154,6 @@ void Biblioteka:: dodaj_publikacje(Ksiazka ks)
 
     if (poz>=0)
         v_reg.at(poz).push(ks);
-
-    int numer_bib=v_pub.size()+1;
-    this->zwieksz_il_pub();
-    pub.ustaw_nr_bib(numer_bib);
     v_pub.push_back(pub);
 }
 
@@ -165,6 +165,14 @@ void Biblioteka:: dodaj_publikacje(Czasopismo czas)
 
     poz=szukaj_regal(czas.jaka_tematyka());
 
+
+    int numer_bib=v_pub.size()+1;
+    this->zwieksz_il_pub();
+    pub.ustaw_nr_bib(numer_bib);
+    pub.ustaw_typ(1);
+
+    czas.ustaw_nr_bib(numer_bib);
+
     if (poz==-1)
     {
         reg.push(czas);
@@ -173,18 +181,35 @@ void Biblioteka:: dodaj_publikacje(Czasopismo czas)
 
     if (poz>=0)
         v_reg.at(poz).push(czas);
-
-    int numer_bib=v_pub.size()+1;
-    this->zwieksz_il_pub();
-    pub.ustaw_nr_bib(numer_bib);
-    pub.ustaw_typ(1);
     v_pub.push_back(pub);
 }
+
 
 void Biblioteka:: usun_publikacje(int numer_bib)
 {
     int max=this->ile_pub();
+    string tematyka;
+
+    int miejsce_na_polce,numer_regalu;
+
     int poz=znajdz_publikacje(numer_bib);
+
+    tematyka=v_pub.at(poz).jaka_tematyka();
+
+
+
+    cout<<"\n\nusuwana ksiazka lezy na regale: "<<tematyka;
+    //cout<<"\nnumer na polce: "<<v_reg.at(poz).znajdz_ks(numer_bib);
+
+    numer_regalu=szukaj_regal(tematyka);
+    cout<<"\naaaaaaaaa: ";
+    miejsce_na_polce=v_reg.at(numer_regalu).znajdz_ks(numer_bib);
+    cout<<":aaaaaaaaa\n";
+
+    cout<<"\n\nszukana ksiazka, regal: "<<numer_regalu<<" miejsce: "<<miejsce_na_polce;
+
+    v_reg.at(numer_regalu).pop_ks(miejsce_na_polce);
+
     if (poz>=0)
     {
     if ((numer_bib>0)&&(numer_bib<=max))
@@ -205,7 +230,6 @@ int Biblioteka:: znajdz_publikacje(int numer_bib)
         {
             if (v_pub.at(i).jaki_numer_bib()==numer_bib)
             {
-                cout<<"Regal o podanej tematyce istnieje. Nie zostal utworzony nowy.";
                 czy_istnieje=1;
             }
             i++;

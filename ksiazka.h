@@ -13,7 +13,6 @@ protected:
 public:
     Ksiazka(string tytul="bez_tytulu", string gatunek="bez_gatunku", string autor="brak_autora"): Publikacja(tytul,gatunek), autor(autor)
     {
-
     };
     ~Ksiazka()
     {
