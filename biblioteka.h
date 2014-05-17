@@ -92,7 +92,7 @@ void Biblioteka:: szukaj_tytul(string tytul)
 
 void Biblioteka:: wyswietl_index_pub()
 {
-    cout<<"\nWszystkie publikacje:\n\n";
+    cout<<"\n\nWszystkie publikacje:\n";
 
     int max=v_pub.size();
     for (int i=0; i<max; i++)
@@ -335,6 +335,8 @@ void Biblioteka:: usun_publikacje(int numer_bib)
 
     int poz=znajdz_publikacje(numer_bib);
 
+    if (poz>=0)
+    {
     tematyka=v_pub.at(poz).jaka_tematyka();
 
 
@@ -350,6 +352,7 @@ void Biblioteka:: usun_publikacje(int numer_bib)
     {
         v_reg.at(numer_regalu).pop_czas(miejsce_na_polce);
     }
+    }
 
     if (poz>=0)
     {
@@ -363,7 +366,7 @@ void Biblioteka:: usun_publikacje(int numer_bib)
 
 int Biblioteka:: znajdz_publikacje(int numer_bib)
 {
-    int max=this->ile_pub();
+    int max=this->v_pub.size();
     int i=0;
     int czy_istnieje=0;
 
@@ -457,43 +460,43 @@ void Biblioteka::zapisz()
 
 int Biblioteka::wczytaj()
 {
-    cout<<"\n\nWCZYTYWANIE: \n";
+    cout<<"\n\nWCZYTYWANIE ";
     xml_document doc;
+
+    this->v_pub.clear();
+    this->v_reg.clear();
+    this->ustaw_il_pub(0);
 
     if (!doc.load_file("biblioteka.txt"))
         return -1;
     xml_node b=doc.child("Biblioteka");
-    cout<<"Biblioteka: ";
+    //cout<<"Biblioteka: ";
     ustaw_adres(b.attribute("Adres").value());
 
     for(xml_node r=b.child("Regal");r;r=r.next_sibling("Regal"))
     {
-        cout<<"\n\tRegal: " <<r.attribute("Tematyka").value()<<endl;
+        //cout<<"\n\tRegal: " <<r.attribute("Tematyka").value()<<endl;
         for(xml_node k=r.child("Ksiazka");k;k=k.next_sibling("Ksiazka"))
         {
             Ksiazka ks(k.attribute("Tytul").value(),r.attribute("Tematyka").value(),k.attribute("Autor").value());
-            cout<<"\n\t\tKsiazka: "<<k.attribute("Tytul").value()<<" | "<<k.attribute("Autor").value()<<" | ";
-            cout<<"Numer bib.: "<<k.attribute("Numer_biblioteczny").value();
+            //cout<<"\n\t\tKsiazka: "<<k.attribute("Tytul").value()<<" | "<<k.attribute("Autor").value()<<" | ";
+            //cout<<"Numer bib.: "<<k.attribute("Numer_biblioteczny").value();
 
             int numer_bib;
 
             std::istringstream ss(k.attribute("Numer_biblioteczny").value());
             ss >> numer_bib;
 
-            cout<<" int: "<<numer_bib;
+            //cout<<" int: "<<numer_bib;
 
 
             dodaj_publikacje(ks,numer_bib);
-
-            //ks.jaki_tytul(k.attribute("Tytul"));
-            //modyfikacja zawartoœci
-            //k.append_attribute("Title").set_value("Nowy tytul");
-        }
+       }
         for(xml_node c=r.child("Czasopismo");c;c=c.next_sibling("Czasopismo"))
         {
             Czasopismo czas(c.attribute("Tytul").value(),r.attribute("Tematyka").value(),c.attribute("Data_wydania").value());
-            cout<<"\n\t\tCzasopismo: "<<c.attribute("Tytul").value()<<" \""<<c.attribute("Data_wydania").value()<<"\"";
-            cout<<"Numer bib.: "<<c.attribute("Numer_biblioteczny").value();
+            //cout<<"\n\t\tCzasopismo: "<<c.attribute("Tytul").value()<<" \""<<c.attribute("Data_wydania").value()<<"\"";
+            //cout<<"Numer bib.: "<<c.attribute("Numer_biblioteczny").value();
 
 
             int numer_bib;
@@ -501,14 +504,10 @@ int Biblioteka::wczytaj()
             std::istringstream ss(c.attribute("Numer_biblioteczny").value());
             ss >> numer_bib;
 
-            cout<<" int: "<<numer_bib;
-
             dodaj_publikacje(czas,numer_bib);
-            //modyfikacja zawartoœci
-            //k.append_attribute("Title").set_value("Nowy tytul");
         }
     }
-
+            cout<<("(zakonczone)\n");
     return 0;
 }
 

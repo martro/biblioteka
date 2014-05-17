@@ -26,23 +26,23 @@ int main()
     Czasopismo czas3;
 
 
-    /*
+
     bib.dodaj_publikacje(ks1);
     bib.dodaj_publikacje(ks2);
     bib.dodaj_publikacje(ks3);
     bib.dodaj_publikacje(czas2);
     bib.dodaj_publikacje(ks4);
     bib.dodaj_publikacje(ks5);
-    bib.dodaj_publikacje(ks6);*/
-
-
-
+    bib.dodaj_publikacje(ks6);
 
 
     bib.wyswietl_regaly();
     bib.wyswietl_index_pub();
-/*
+
     bib.usun_publikacje(1);
+    bib.usun_publikacje(1);
+    bib.usun_publikacje(1);
+    /*
     bib.usun_publikacje(2);
     bib.usun_publikacje(3);
     bib.usun_publikacje(4);
@@ -66,14 +66,16 @@ int main()
 
     bib.ustaw_adres("albatros");
 
-    //bib.zapisz();
+    bib.zapisz();
 
 
     bib.wczytaj();
 
     bib.usun_publikacje(3);
     bib.dodaj_publikacje(czas1);
+    bib.dodaj_publikacje(czas1);
     bib.usun_publikacje(9);
+    bib.usun_publikacje(-7);
     bib.dodaj_publikacje(czas1);
 
     bib.wyswietl_index_pub();
