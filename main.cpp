@@ -25,14 +25,15 @@ int main()
     Czasopismo czas2("Zbrodnie w ciemnosci", "Sensacja","01/01/14");
     Czasopismo czas3;
 
-    bib.dodaj_publikacje(czas1);
+
+    /*
     bib.dodaj_publikacje(ks1);
     bib.dodaj_publikacje(ks2);
     bib.dodaj_publikacje(ks3);
     bib.dodaj_publikacje(czas2);
     bib.dodaj_publikacje(ks4);
     bib.dodaj_publikacje(ks5);
-    bib.dodaj_publikacje(ks6);
+    bib.dodaj_publikacje(ks6);*/
 
 
 
@@ -65,9 +66,16 @@ int main()
 
     bib.ustaw_adres("albatros");
 
-    bib.zapisz();
+    //bib.zapisz();
 
 
     bib.wczytaj();
+
+    bib.usun_publikacje(3);
+    bib.dodaj_publikacje(czas1);
+    bib.usun_publikacje(9);
+    bib.dodaj_publikacje(czas1);
+
+    bib.wyswietl_index_pub();
 
 }

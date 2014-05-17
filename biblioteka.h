@@ -30,11 +30,14 @@ public:
     ~Biblioteka() {};
 
     void dodaj_publikacje(Ksiazka ks);
+    void dodaj_publikacje(Ksiazka ks,int numer_bib);
     void dodaj_publikacje(Czasopismo czas);
+    void dodaj_publikacje(Czasopismo czas,int numer_bib);
     void dodaj_regal(Regal reg);
     void wyswietl_regaly();
     void wyswietl_index_pub();
     int ile_pub();
+    void ustaw_il_pub(int il);
     void init();
     void zwieksz_il_pub();
     void usun_publikacje(int numer_bib);
@@ -240,6 +243,32 @@ void Biblioteka:: dodaj_publikacje(Ksiazka ks)
     v_pub.push_back(pub);
 }
 
+void Biblioteka:: dodaj_publikacje(Ksiazka ks,int numer_bib)
+{
+    Regal reg(ks.jaka_tematyka());
+    Publikacja pub(ks.jaki_tytul(),ks.jaka_tematyka(),ks.jaki_typ());
+    int poz;
+
+    poz=szukaj_regal(ks.jaka_tematyka());
+
+
+    pub.ustaw_nr_bib(numer_bib);
+    ks.ustaw_nr_bib(numer_bib);
+
+    if (numer_bib>ile_pub())
+    ustaw_il_pub(numer_bib);
+
+    if (poz==-1)
+    {
+        reg.push(ks);
+        push(reg);
+    }
+
+    if (poz>=0)
+        v_reg.at(poz).push(ks);
+    v_pub.push_back(pub);
+}
+
 void Biblioteka:: dodaj_publikacje(Czasopismo czas)
 {
     Regal reg(czas.jaka_tematyka());
@@ -249,10 +278,39 @@ void Biblioteka:: dodaj_publikacje(Czasopismo czas)
     poz=szukaj_regal(czas.jaka_tematyka());
 
 
-    int numer_bib=v_pub.size()+1;
+    int numer_bib=ile_pub()+1;
     this->zwieksz_il_pub();
     pub.ustaw_nr_bib(numer_bib);
     pub.ustaw_typ(1);
+
+    czas.ustaw_nr_bib(numer_bib);
+
+    if (poz==-1)
+    {
+        reg.push(czas);
+        push(reg);
+    }
+
+    if (poz>=0)
+        v_reg.at(poz).push(czas);
+    v_pub.push_back(pub);
+}
+
+void Biblioteka:: dodaj_publikacje(Czasopismo czas, int numer_bib)
+{
+    Regal reg(czas.jaka_tematyka());
+    int poz;
+    Publikacja pub(czas.jaki_tytul(),czas.jaka_tematyka(),czas.jaki_typ());
+
+    poz=szukaj_regal(czas.jaka_tematyka());
+
+
+    pub.ustaw_nr_bib(numer_bib);
+    pub.ustaw_typ(1);
+
+    if (numer_bib>ile_pub())
+    ustaw_il_pub(numer_bib);
+
 
     czas.ustaw_nr_bib(numer_bib);
 
@@ -329,6 +387,11 @@ int Biblioteka:: ile_pub()
     return il_publikacji;
 }
 
+void Biblioteka:: ustaw_il_pub(int il)
+{
+    this->il_publikacji=il;
+}
+
 int Biblioteka:: ile_regalow()
 {
     return v_reg.size();
@@ -376,7 +439,7 @@ void Biblioteka::zapisz()
             xml_node ksiazka=regal.append_child("Ksiazka");
             ksiazka.append_attribute("Tytul")=v_reg.at(i).ksiazka(j).jaki_tytul().c_str();
             ksiazka.append_attribute("Autor")=v_reg.at(i).ksiazka(j).jaki_autor().c_str();
-            ksiazka.append_attribute("Numer_biblioteczny")=5;
+            ksiazka.append_attribute("Numer_biblioteczny")=v_reg.at(i).ksiazka(j).jaki_numer_bib();
         }
 
         for(int j=0; j<v_reg.at(i).ile_czas(); j++)
@@ -391,6 +454,7 @@ void Biblioteka::zapisz()
     doc.save_file("biblioteka.txt");
 }
 
+
 int Biblioteka::wczytaj()
 {
     cout<<"\n\nWCZYTYWANIE: \n";
@@ -404,18 +468,42 @@ int Biblioteka::wczytaj()
 
     for(xml_node r=b.child("Regal");r;r=r.next_sibling("Regal"))
     {
-        cout<<"\tRegal tematyka: " <<r.attribute("Tematyka").value()<<endl;
+        cout<<"\n\tRegal: " <<r.attribute("Tematyka").value()<<endl;
         for(xml_node k=r.child("Ksiazka");k;k=k.next_sibling("Ksiazka"))
         {
-            cout<<"\t\tKsiazka: "<<k.attribute("Tytul").value()<<
-                  " \""<<k.attribute("Autor").value()<<"\""<<endl;
+            Ksiazka ks(k.attribute("Tytul").value(),r.attribute("Tematyka").value(),k.attribute("Autor").value());
+            cout<<"\n\t\tKsiazka: "<<k.attribute("Tytul").value()<<" | "<<k.attribute("Autor").value()<<" | ";
+            cout<<"Numer bib.: "<<k.attribute("Numer_biblioteczny").value();
+
+            int numer_bib;
+
+            std::istringstream ss(k.attribute("Numer_biblioteczny").value());
+            ss >> numer_bib;
+
+            cout<<" int: "<<numer_bib;
+
+
+            dodaj_publikacje(ks,numer_bib);
+
+            //ks.jaki_tytul(k.attribute("Tytul"));
             //modyfikacja zawartoœci
             //k.append_attribute("Title").set_value("Nowy tytul");
         }
         for(xml_node c=r.child("Czasopismo");c;c=c.next_sibling("Czasopismo"))
         {
-            cout<<"\t\tCzasopismo: "<<c.attribute("Autor").value()<<
-                  " \""<<c.attribute("Tytul").value()<<"\""<<endl;
+            Czasopismo czas(c.attribute("Tytul").value(),r.attribute("Tematyka").value(),c.attribute("Data_wydania").value());
+            cout<<"\n\t\tCzasopismo: "<<c.attribute("Tytul").value()<<" \""<<c.attribute("Data_wydania").value()<<"\"";
+            cout<<"Numer bib.: "<<c.attribute("Numer_biblioteczny").value();
+
+
+            int numer_bib;
+
+            std::istringstream ss(c.attribute("Numer_biblioteczny").value());
+            ss >> numer_bib;
+
+            cout<<" int: "<<numer_bib;
+
+            dodaj_publikacje(czas,numer_bib);
             //modyfikacja zawartoœci
             //k.append_attribute("Title").set_value("Nowy tytul");
         }

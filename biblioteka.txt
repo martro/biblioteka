@@ -4,14 +4,14 @@
 		<Czasopismo Tytul="National Geographic" Data_wydania="15/05/14" Numer_biblioteczny="1" />
 	</Regal>
 	<Regal Tematyka="Sensacja">
-		<Ksiazka Tytul="Inferno" Autor="Dan Brown" Numer_biblioteczny="5" />
-		<Ksiazka Tytul="Szesc lat pozniej" Autor="Harlan Coben" Numer_biblioteczny="5" />
-		<Ksiazka Tytul="Inferno2" Autor="Dan Brown" Numer_biblioteczny="5" />
-		<Ksiazka Tytul="Inferno3" Autor="Dan Brown" Numer_biblioteczny="5" />
-		<Ksiazka Tytul="Inferno4" Autor="Dan Brown" Numer_biblioteczny="5" />
+		<Ksiazka Tytul="Inferno" Autor="Dan Brown" Numer_biblioteczny="2" />
+		<Ksiazka Tytul="Szesc lat pozniej" Autor="Harlan Coben" Numer_biblioteczny="3" />
+		<Ksiazka Tytul="Inferno2" Autor="Dan Brown" Numer_biblioteczny="6" />
+		<Ksiazka Tytul="Inferno3" Autor="Dan Brown" Numer_biblioteczny="7" />
+		<Ksiazka Tytul="Inferno4" Autor="Dan Brown" Numer_biblioteczny="8" />
 		<Czasopismo Tytul="Zbrodnie w ciemnosci" Data_wydania="01/01/14" Numer_biblioteczny="5" />
 	</Regal>
 	<Regal Tematyka="Biografia">
-		<Ksiazka Tytul="Surely you are joking Mr. Feynman" Autor="R.Feynman" Numer_biblioteczny="5" />
+		<Ksiazka Tytul="Surely you are joking Mr. Feynman" Autor="R.Feynman" Numer_biblioteczny="4" />
 	</Regal>
 </Biblioteka>
